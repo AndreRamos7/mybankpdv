@@ -1,6 +1,7 @@
 from database.conexao import Conexao
+from PyQt6.QtWidgets import *
 
-class PixService:
+class PixService(QPushButton):
 
     @staticmethod
     def transferir(cliente_id, chave_pix, valor):
@@ -16,11 +17,11 @@ class PixService:
             (chave_pix,)
         )
         if destino[0][0] == cliente_id:
-            con.fechar()
+            
             return 'MESMA_CONTA'
 
         if not destino:
-            con.fechar()
+            
             return False
 
         destino_id = destino[0][0]
@@ -35,10 +36,10 @@ class PixService:
         )[0][0]
 
         if saldo < valor:
-            con.fechar()
+            
             return False
 
-        saldo_destino = con.consultar(
+        x = con.consultar(
             '''
             SELECT saldo_corrente
             FROM contas
@@ -53,7 +54,7 @@ class PixService:
             SET saldo_corrente = ?
             WHERE cliente_id = ?
             ''',
-            (saldo - valor, cliente_id)
+            (saldo - valor, 1)
         )
 
         con.executar(
@@ -62,7 +63,7 @@ class PixService:
             SET saldo_corrente = ?
             WHERE cliente_id = ?
             ''',
-            (saldo_destino + valor, destino_id)
+            (x + valor, destino_id)
         )
 
         con.executar(
@@ -91,6 +92,6 @@ class PixService:
             )
         )
 
-        con.fechar()
+        
 
         return True

@@ -15,7 +15,7 @@ class AuthService:
             (cpf, senha)
         )
 
-        con.fechar()
+        
 
         if dados:
             return dados[0]

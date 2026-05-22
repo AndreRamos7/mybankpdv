@@ -158,7 +158,7 @@ Detalhes: {item[2]}
 
       if dialog.exec():
 
-            valor = float(dialog.get_value())
+            valor = dialog.get_value()
 
             sucesso = ContaService.sacar(
                 self.cliente_id,

@@ -1,3 +1,4 @@
+
 # PDV Bancário Moderno
 
 ## Instalação
@@ -27,5 +28,5 @@ Senha: 1234
 
 ## PARA TESTAR
 ('João Silva', '11122233344', '1234', 'joao@pix')
-('Bill Gates', '33366699988', '1234', 'andre@pix')
+('Bill Gates', '33366699988', '1234', 'bill@pix')
 ('Jim Hopper', '12345678901', '1234', 'jim@pix')

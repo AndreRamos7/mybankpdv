@@ -54,7 +54,7 @@ class PixService(QPushButton):
             SET saldo_corrente = ?
             WHERE cliente_id = ?
             ''',
-            (saldo - valor, 1)
+            (saldo - valor, cliente_id)
         )
 
         con.executar(

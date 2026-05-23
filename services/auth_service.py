@@ -15,8 +15,6 @@ class AuthService:
             (cpf, senha)
         )
 
-        
-
         if dados:
             return dados[0]
 

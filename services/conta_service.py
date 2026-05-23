@@ -9,7 +9,7 @@ class ContaService:
 
         dados = con.consultar(
             '''
-            SELECT saldoCorente, saldo_poupanca
+            SELECT saldo_corrente, saldo_poupanca
             FROM contas
             WHERE cliente_id = ?
             ''',
@@ -53,7 +53,7 @@ class ContaService:
             (cliente_id,)
         )[0][0]
 
-        if saldo >= valor + 37:
+        if saldo >= valor:
 
             novo = saldo - valor
 
